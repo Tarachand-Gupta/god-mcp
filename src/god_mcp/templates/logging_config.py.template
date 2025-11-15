@@ -1,0 +1,50 @@
+"""
+Logging configuration for {server_name}.
+"""
+
+import logging
+from pathlib import Path
+
+
+def setup_logging(server_name: str, log_level: str = "INFO") -> logging.Logger:
+    """
+    Set up logging for the MCP server.
+    
+    Args:
+        server_name: Name of the server
+        log_level: Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+    
+    Returns:
+        Configured logger instance
+    """
+    log_file = Path(__file__).parent.parent.parent / f"{{server_name}}_debug.log"
+    log_file.parent.mkdir(parents=True, exist_ok=True)
+    
+    # Configure logging
+    logging.basicConfig(
+        level=getattr(logging, log_level.upper()),
+        format="[%(asctime)s] [%(levelname)s] [%(name)s] %(message)s",
+        handlers=[
+            logging.FileHandler(log_file),
+            logging.StreamHandler(),
+        ],
+    )
+    
+    logger = logging.getLogger(server_name)
+    logger.info(f"Logging initialized for {{server_name}}")
+    logger.info(f"Log file: {{log_file}}")
+    
+    return logger
+
+
+def get_logger(name: str) -> logging.Logger:
+    """
+    Get a logger instance.
+    
+    Args:
+        name: Logger name
+    
+    Returns:
+        Logger instance
+    """
+    return logging.getLogger(name)

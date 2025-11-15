@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "{package_name}"
+version = "0.1.0"
+description = "{description}"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {{ text = "MIT" }}
+authors = [
+    {{ name = "godMCP", email = "generated@godmcp.local" }}
+]
+
+dependencies = [
+    "fastmcp>=0.1.0",
+{extra_dependencies}
+]
+
+[project.scripts]
+{package_name} = "{package_name}.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/{package_name}"]
