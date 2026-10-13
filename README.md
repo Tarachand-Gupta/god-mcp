@@ -11,16 +11,14 @@ The agent does the API research and writes the tool logic. God MCP handles the s
 ## How it works
 
 ```mermaid
-flowchart LR
+flowchart TB
     Request["A tool your agent needs"] --> Agent["Your coding agent"]
     Docs["API documentation"] --> Agent
-    Agent --> Spec["Tool description + schema + Python implementation"]
-    Spec --> God["God MCP"]
-    God --> Package["Local Python MCP server"]
-    Package --> Adapters["Selected host adapters"]
-    Adapters --> Codex["Codex"]
-    Adapters --> Pi["Pi"]
-    Adapters --> Others["Other configured agents"]
+    Agent -->|"Description, schema and Python code"| God["God MCP"]
+    God --> Package["Generated Python MCP server"]
+    Package -->|"Host-specific configuration"| Codex["Codex"]
+    Package -->|"Host-specific configuration"| Pi["Pi"]
+    Package -->|"Host-specific configuration"| Others["Other selected agents"]
 ```
 
 For example, once God MCP is connected:
