@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Agent-agnostic modernization — October 2026
+
+- Added explicit host selection, eight built-in adapters and configurable JSON/TOML adapters.
+- Added a preview-first CLI for bootstrap and installation; preserve unrelated settings, back up configs and detect conflicting changes.
+- Separated Python/FastMCP generation from host registration; removed the implicit Kiro fallback.
+- Added generated-source syntax checks, configuration redaction, scope-safe removal and protocol tests.
+- Documented direct Codex discovery and Pi client invocation checks, including activation limits.
+- Added a guided agent skill and architecture/workflow diagrams.
+
+### Earlier development notes
+
 ### Added
 - Initial release of godMCP
 - `create_mcp_server` tool for generating complete MCP server packages
@@ -40,7 +51,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Package generation with proper Python structure
 
 ### Features
-- Generate production-ready MCP servers
+- Generate local MCP server packages
 - Automatic pyproject.toml generation
 - README generation for created servers
 - Proper Python package structure
@@ -69,4 +80,4 @@ No upgrade needed - this is the initial release.
 
 ## Future Plans
 
-See the [Roadmap](README.md#roadmap) section in the README for planned features and improvements.
+See repository issues for proposed work. The [README](README.md) describes current behavior and limits.

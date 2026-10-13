@@ -24,8 +24,9 @@ classifiers = [
 ]
 
 dependencies = [
-    "fastmcp>=0.1.0",
-    "mcp>=0.1.0",
+    "fastmcp>=2.13,<3",
+    "mcp>=1.21,<2",
+    "tomlkit>=0.13,<1",
     "pydantic>=2.0.0",
 ]
 
@@ -39,6 +40,7 @@ dev = [
 
 [project.scripts]
 god-mcp = "god_mcp.server:main"
+god-mcp-config = "god_mcp.cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/god_mcp"]

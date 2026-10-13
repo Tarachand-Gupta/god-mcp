@@ -99,3 +99,7 @@ cython_debug/
 # Project specific
 VERIFICATION_RESULTS.md
 test_*.py
+
+# Keep regression tests and the application dependency lock reproducible.
+!tests/test_*.py
+!uv.lock
